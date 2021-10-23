@@ -16,6 +16,20 @@ The scrip will auto detect if it's a Retail or OEM key and then will tell you if
 The scrip will just keep asking you for a valid key until you enter a valid one, then it quits.<br>
 You can force a quit by pressing `crtl+c`.<br>
 
+**Updates:**<br>
+20211023: So I finally fix my VM issues and got win 95 working / installing so I can poke at the OEM installer.<br>
+Yeah this one is odd. A little ground work to save some time<br>
+11101-OEM-0222222-33333<br>
+bank 1 - OEM Bank - Bank 2 - Bank 3<br>
+Can confirm that bank 1 can be separated from the rest of the key, so you can use a date from another key, or any valid date really eg. 36695 is a valid date according to the check but not IRL as 1995 was not a leap year.<br>
+And that the 3rd bank can be separated aswell, just type the first 2 banks and then enter random numbers and the key should work fine.<br>
+It also appears to pass the Y2K issue fine aswell, so yeah might of just fluked that one as they are combining and checking the day and year into one int. and i'm just using a list for the year.. so we both just barely pass..<br>
+Even know the first and second - are checked kinda according to the decompile and the third - is not.<br>
+You can't edit or change any of the -'s or the OEM text, you only get 3 text boxes to enter the 3 banks of the key, not one big box like the Retail install. So I've added a single check for the leading 0 on the mod7 and the 3rd - to error out if they are missing, it's not the cleanest but it works.<br>
+As I'v never installed OEM win 95 I did not know you couldn't change the OEM bank either so my -OEM- check is fine. Also makes sense why the decompile didn't check it as you can't change it in the first place.<br>
+Also can confirm the 3rd bank has to be numbers, it can't be text but it looks like I already had an error for this anyways. Just wanted to check if it matched the legit installer.<br>
+ 
+
 **Retail key layout and check:**<br>
 111-1111111<br>
 000-0000007<br>

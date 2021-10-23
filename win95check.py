@@ -84,7 +84,7 @@ def OEMKey(keyin):
     #Unpack the key into veribiles.
     #Yes, this looks and is retrated.
     digi1, digi2, digi3, digi4, digi5, digi6, digi7, digi8, digi9, digi10, digi11, digi12, digi13, digi14, digi15, digi16, digi17, digi18, digi19, digi20, digi21, digi22, digi23 = keyin
-    #1     9      9      9      6      -      O      E      M      -       7       2       1       5       8       5       0       -       1       2       3       4       5
+    #1     9      9      9      6      -      O      E      M      -       0       3       1       3       9       8       4       -       1       2       3       4       5
     
     #date check
     checkday  = int(digi1+digi2+digi3)
@@ -98,7 +98,7 @@ def OEMKey(keyin):
         print("\nError: Fail date check\n")
         EnterKey()
         
-    #Mod7 check on the 3ed bank of the key
+    #Mod7 check on the 3rd bank of the key
     digi11 = int(digi11)
     digi12 = int(digi12)
     digi13 = int(digi13)
@@ -106,6 +106,11 @@ def OEMKey(keyin):
     digi15 = int(digi15)
     digi16 = int(digi16)
     digi17 = int(digi17)
+    
+    #Leading 0 check
+    if not digi11 == 0 or digi18 != '-':
+        print("\nKey formatting error: No Leading zero or missing the 3rd -\n")
+        EnterKey()
     
     sum7 = digi11+digi12+digi13+digi14+digi15+digi16+digi17
     
