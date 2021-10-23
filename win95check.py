@@ -114,6 +114,9 @@ def OEMKey(keyin):
     
     sum7 = digi11+digi12+digi13+digi14+digi15+digi16+digi17
     
+    if sum7 == 0000000:
+        print("Error: OEM Key can not be all 0's, sadly.")
+    
     keyweight = sum7/7
     mod7    = sum7%7
     
