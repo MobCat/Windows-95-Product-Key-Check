@@ -91,11 +91,15 @@ def OEMKey(keyin):
     checkyear = int(digi4+digi5)
     #print (f"DDD = {checkday} YY = {checkyear}")
     dayrange  = range(1, 367)
-    yearlist  = [95, 96, 97, 98, 99, 00, 1, 2]
+    yearlist  = [95, 96, 97, 98, 99, 0, 1, 2]
     
-    #If its not on the list, fail it's ass.
-    if not checkday in dayrange and checkyear in yearlist:
-        print("\nError: Fail date check\n")
+    #Crappy date check. Should be done with one function but its bugging out.
+    if not checkday in dayrange:
+        print("\nError: Fail date check, out of range day")
+        EnterKey()
+        
+    if not checkyear in yearlist:
+        print("\nError: Fail date check, out of range year\n")
         EnterKey()
         
     #Mod7 check on the 3rd bank of the key
