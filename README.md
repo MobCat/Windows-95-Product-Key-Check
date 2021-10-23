@@ -28,6 +28,8 @@ Even know the first and second - are checked kinda according to the decompile an
 You can't edit or change any of the -'s or the OEM text, you only get 3 text boxes to enter the 3 banks of the key, not one big box like the Retail install. So I've added a single check for the leading 0 on the mod7 and the 3rd - to error out if they are missing, it's not the cleanest but it works.<br>
 As I'v never installed OEM win 95 I did not know you couldn't change the OEM bank either so my -OEM- check is fine. Also makes sense why the decompile didn't check it as you can't change it in the first place.<br>
 Also can confirm the 3rd bank has to be numbers, it can't be text but it looks like I already had an error for this anyways. Just wanted to check if it matched the legit installer.<br>
+I also change the terminology from key type to key weight to better suite whatever this made up value is.<br>
+To get a "legit" key you want a weight of 2.0~4.0. There are a few 5.0 keys but most of the legit ones I have found so far are always 3.0 or 4.0 and very sometimes 2.0 but enough to me not a fluke.
  
 
 **Retail key layout and check:**<br>
@@ -39,14 +41,14 @@ The black listed numbers are 333, 444, 555, 666, 777, 888 and 999.<sup>\*2</sup>
 Then sum the remaining numbers (sum = 0+9+2+6+7+9+2).<br>
 Then divide that sum by the length of the string, in this and all cases, 7 (sum/7).<br>
 In the decompile this is referred to as "mod7" so I'll refer to it as that as well.<br>
-Then if this mod7 can be divided without remainders and returns a "keytype" of something like 4.0 then it's a valid key<br>
-If it returns a "keytype" of something like 3.142857142857143 then it's not a valid key.<br>
+Then if this mod7 can be divided without remainders and returns a "key weight" of something like 4.0 then it's a valid key<br>
+If it returns a "key weight" of something like 3.142857142857143 then it's not a valid key.<br>
 So basically, if the sum of the key can be divided into 7 then the installer thinks it's a valid key.
 not sure if the remaining hole number was ever used eg.<br>
 1.0 is a valid win 95 key and 3.0 is a valid 95 B (OSR2) key.<br>
-I originally made up this "keytype" function as all the legit keys I found where always coming back as 4.0
+I originally made up this "key weight" function as all the legit keys I found where always coming back as 4.0
 and any of the fake made up ones where 1.0 and sometimes 2.0, but then I started to find some legit 2.0, 3.0 ones.<br>
-So far though legit keys (as in I can find a scan of a product sticker or booklet on Google images) only return a 2.0, 3.0 and 4.0, no higher or lower, but I'll keep looking.<br>
+So far though legit keys (as in I can find a scan of a product sticker or booklet on Google images) only return a key weight of 2.0, 3.0 and 4.0, no higher or lower, but I'll keep looking. But yeah it seems if you want to make a "legit" key you want a weight of around 3.0 or 4.0 and as less repeating numbers as possible. so 000-9999956 is a valid key according to the checker but MS would of never used it.<br>
 
 **Retail key layout and check:**<br>
 11101-OEM-1111111-11111<br>
@@ -101,8 +103,8 @@ However I am unpacking the OEM key into 23 separate variables soo, you win some 
 **Improvements:**<br>
 As a part of the OEM key is the same as the Retail key I should do the basic length and - check first, then the date, then pass the key off to the Retail key checker and make that finish the check, instead of having 2 mod7 functions or a mod7 function for every different type of key you wanted to check.<br>
 This algorithm could be expanded *a lot*. For eg. a "pro" key might be mod8 and "home" could be mod7.
-Combined that with if the "keytype" thing I made up == a certain number then also be a different type of key aka home premium vs home basic.
-You could also mod17 the *hole* OEM key minus the OEM and - parts, that would give you more "keytype" numbers and be harder to just brute force numbers instead of more or less wasting the last 5 digits.<br>
+Combined that with if the "key weight" thing I made up == a certain number then also be a different type of key aka home premium vs home basic.
+You could also mod17 the *hole* OEM key minus the OEM and - parts, that would give you more "key weight" numbers and be harder to just brute force numbers instead of more or less wasting the last 5 digits.<br>
 On the subject of wasted numbers, it looks like they might of wanted to have a key type at the start of the Retail key but axed it at the last minute and just did a basic black list, so yeah you could mod3 that to get a key type aswell. wouldn't be very good check, but better then wasted numbers.<br>
 As I mentioned about the Greek thing, you could change the OEM text to a word that's different in every language,
 So the first screen is the key check with basic, please enter your CD key in the like 7 most common languages,
@@ -115,4 +117,4 @@ https://www.youtube.com/watch?v=cwyH59nACzQ<br>
 The decompile of the OEM key check function<br>
 https://gist.github.com/nezza/a25bee13f25a1733a4c7a1d3d1cf5882<br>
 
-In conclusion, thank you for coming to my long ted talk about checking windows 95 keys. I don't think the real windows 95 key has been fully cracked open yet as all the legit ones seem to only return a very specific "keytype" range and our generated ones just return whatever but for now what we have works with the legit win 95 install and matches what we can gleam from the decompile soo this was a fun ride but, I really have to get back to my day job now.... That I got distracted from like 7 hours ago.
+In conclusion, thank you for coming to my long ted talk about checking windows 95 keys. I don't think the real windows 95 key has been fully cracked open yet as all the legit ones seem to only return a very specific "key weight" range and our generated ones just return whatever but for now what we have works with the legit win 95 install and matches what we can gleam from the decompile soo this was a fun ride but, I really have to get back to my day job now.... That I got distracted from like 2 days.

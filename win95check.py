@@ -68,10 +68,10 @@ def RetailKey(keyin):
     #Sum the number together
     keyin    = digi5+digi6+digi7+digi8+digi9+digi10+digi11
     #devide the sum by the char length. as we can only enter 7 then its just 7.
-    keytype  = keyin/7
+    keyweight  = keyin/7
     keycheck = keyin%7
     
-    print (f"keytype: {keytype}\n")
+    print (f"key weight: {keyweight}\n")
     
     #if the modulo opt of keycheck returns a whole number, no remainders then its a legit key.
     if keycheck == 0:
@@ -114,7 +114,7 @@ def OEMKey(keyin):
     
     sum7 = digi11+digi12+digi13+digi14+digi15+digi16+digi17
     
-    keytype = sum7/7
+    keyweight = sum7/7
     mod7    = sum7%7
     
     #check if the last random part of the key is numbers and not letters
@@ -124,7 +124,7 @@ def OEMKey(keyin):
         print("\nError: Product key must be a number.\n")
         EnterKey()
     
-    print (f"keytype: {keytype}\n")
+    print (f"Keyweight: {keyweight}\n")
     
     if mod7 == 0:
         installer("1")
