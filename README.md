@@ -100,16 +100,6 @@ The way I'm doing my mod7 check is a little cleaner then how it's done in the le
 Python just has a math function for does this number divide equally or not, return a 0 or 1.<br>
 However I am unpacking the OEM key into 23 separate variables soo, you win some you lose some.<br>
 
-**Improvements:**<br>
-As a part of the OEM key is the same as the Retail key I should do the basic length and - check first, then the date, then pass the key off to the Retail key checker and make that finish the check, instead of having 2 mod7 functions or a mod7 function for every different type of key you wanted to check.<br>
-This algorithm could be expanded *a lot*. For eg. a "pro" key might be mod8 and "home" could be mod7.
-Combined that with if the "key weight" thing I made up == a certain number then also be a different type of key aka home premium vs home basic.
-You could also mod17 the *hole* OEM key minus the OEM and - parts, that would give you more "key weight" numbers and be harder to just brute force numbers instead of more or less wasting the last 5 digits.<br>
-On the subject of wasted numbers, it looks like they might of wanted to have a key type at the start of the Retail key but axed it at the last minute and just did a basic black list, so yeah you could mod3 that to get a key type aswell. wouldn't be very good check, but better then wasted numbers.<br>
-As I mentioned about the Greek thing, you could change the OEM text to a word that's different in every language,
-So the first screen is the key check with basic, please enter your CD key in the like 7 most common languages,
-Then the key check detects you entered the German word for OEM for eg. and continues the install in German.
-Or you could be lame and just have a big list of EUR,GER,AUS,JPN,USA,etc. and then do a if key contain something in that list install the corresponding language.<br>
 
 **Sources:**<br>
 The stacksmashing video on win95 keys<br>
